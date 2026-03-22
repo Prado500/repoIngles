@@ -19,54 +19,79 @@
     </header>
 
     <main>
-        <section class="intro-section">
-            <h2>Prueba Diagnóstica - Clase 1</h2>
-            <p>Revisa las respuestas y la retroalimentación de cada pregunta para repasar tus errores y aciertos.</p>
+        <section class="class-selector">
+            <button class="tab-btn active" data-target="clase-1">Clase 1</button>
+            <button class="tab-btn" data-target="clase-2">Clase 2 (Próximamente)</button>
         </section>
 
-        <section class="clinics-container">
-            <div class="clinic">
-                <h3>Pregunta 1</h3>
-                <img src="../images/q1.jpg" alt="Pregunta 1 - Verbo to be">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 2</h3>
-                <img src="../images/q2.jpg" alt="Pregunta 2 - Pasado verbo to be">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 3</h3>
-                <img src="../images/q3.jpg" alt="Pregunta 3 - Presente simple rutinas">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 4</h3>
-                <img src="../images/q4.jpg" alt="Pregunta 4 - Presente continuo">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 5</h3>
-                <img src="../images/q5.jpg" alt="Pregunta 5 - Verbo irregular Go">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 6</h3>
-                <img src="../images/q6.jpg" alt="Pregunta 6 - Verbo irregular See">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 7</h3>
-                <img src="../images/q7.jpg" alt="Pregunta 7 - Futuro con will">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 8</h3>
-                <img src="../images/q8.jpg" alt="Pregunta 8 - Futuro con going to">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 9</h3>
-                <img src="../images/q9.jpg" alt="Pregunta 9 - Presente perfecto">
-            </div>
-            <div class="clinic">
-                <h3>Pregunta 10</h3>
-                <img src="../images/q10.jpg" alt="Pregunta 10 - Pasado simple negativo">
-            </div>
-        </section>
+        <div id="clase-1" class="class-content active">
+            <section class="intro-section">
+                <h2>Prueba Diagnóstica - Clase 1</h2>
+                <p>Haz clic en las imágenes para ampliarlas y revisa la retroalimentación de cada pregunta en orden.</p>
+            </section>
+
+            <section class="clinics-container">
+                <div class="clinic">
+                    <h3>Pregunta 1</h3>
+                    <img src="../images/q1.jpg" alt="Pregunta 1 - Verbo to be" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 2</h3>
+                    <img src="../images/q2.jpg" alt="Pregunta 2 - Pasado verbo to be" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 3</h3>
+                    <img src="../images/q3.jpg" alt="Pregunta 3 - Presente simple rutinas" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 4</h3>
+                    <img src="../images/q4.jpg" alt="Pregunta 4 - Presente continuo" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 5</h3>
+                    <img src="../images/q5.jpg" alt="Pregunta 5 - Verbo irregular Go" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 6</h3>
+                    <img src="../images/q6.jpg" alt="Pregunta 6 - Verbo irregular See" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 7</h3>
+                    <img src="../images/q7.jpg" alt="Pregunta 7 - Futuro con will" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 8</h3>
+                    <img src="../images/q8.jpg" alt="Pregunta 8 - Futuro con going to" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 9</h3>
+                    <img src="../images/q9.jpg" alt="Pregunta 9 - Presente perfecto" class="gallery-img">
+                </div>
+                <div class="clinic">
+                    <h3>Pregunta 10</h3>
+                    <img src="../images/q10.jpg" alt="Pregunta 10 - Pasado simple negativo" class="gallery-img">
+                </div>
+            </section>
+        </div>
+
+        <div id="clase-2" class="class-content">
+            <section class="intro-section">
+                <h2>Prueba - Clase 2</h2>
+                <p>Aún no hay evaluaciones para esta clase.</p>
+            </section>
+        </div>
+
     </main>
+
+    <div id="image-modal" class="modal">
+        <span class="close-modal" aria-label="Cerrar">&times;</span>
+        <button class="modal-nav-btn prev-btn" aria-label="Anterior">&#10094;</button>
+        <div class="modal-content-wrapper">
+            <img class="modal-content-img" id="expanded-img">
+            <div id="caption"></div>
+        </div>
+        <button class="modal-nav-btn next-btn" aria-label="Siguiente">&#10095;</button>
+    </div>
 
     <footer>
         <p>&copy; 2026 Diseñado por David - Todos los derechos reservados</p>

@@ -21,7 +21,8 @@
     <main>
         <section class="class-selector">
             <button class="tab-btn active" data-target="clase-1">Clase 1</button>
-            <button class="tab-btn" data-target="clase-2">Clase 2 (Próximamente)</button>
+            <button class="tab-btn" data-target="clase-2">Clase 2 </button>
+            <button class="tab-btn" data-target="clase-3">Clase 3 (proximamente) </button>
         </section>
 
         <div id="clase-1" class="class-content active">
@@ -74,9 +75,49 @@
             </section>
         </div>
 
-        <div id="clase-2" class="class-content">
+       <div id="clase-2" class="class-content">
             <section class="intro-section">
-                <h2>Prueba - Clase 2</h2>
+                <h2>Práctica: Geología en Campo</h2>
+                <p>Aplica lo aprendido en la Clase 2. Selecciona la respuesta correcta para cada situación geológica.</p>
+                
+                <div class="quiz-container" style="text-align: left; margin-top: 20px;">
+                    <div class="quiz-question">
+                        <p><strong>1. Estás describiendo tu perfil profesional. ¿Cuál es la forma correcta?</strong></p>
+                        <label><input type="radio" name="q1" value="wrong"> I am geology student.</label><br>
+                        <label><input type="radio" name="q1" value="correct"> I am a geology student.</label><br>
+                        <label><input type="radio" name="q1" value="wrong"> I have 23 years and I am geologist.</label>
+                    </div>
+
+                    <div class="quiz-question" style="margin-top: 20px;">
+                        <p><strong>2. Encuentras una gema en la mina de Muzo, Boyacá. Le dices a tu jefe: "I found ___ emerald!"</strong></p>
+                        <label><input type="radio" name="q2" value="wrong"> a</label><br>
+                        <label><input type="radio" name="q2" value="correct"> an</label><br>
+                        <label><input type="radio" name="q2" value="wrong"> the one</label>
+                    </div>
+
+                    <div class="quiz-question" style="margin-top: 20px;">
+                        <p><strong>3. Tienes que ir a revisar una falla geológica y te subes a una cuatrimoto (ATV). ¿Qué verbo usas?</strong></p>
+                        <label><input type="radio" name="q3" value="wrong"> I drive the ATV.</label><br>
+                        <label><input type="radio" name="q3" value="correct"> I ride the ATV.</label><br>
+                        <label><input type="radio" name="q3" value="wrong"> I play the ATV.</label>
+                    </div>
+
+                    <div class="quiz-question" style="margin-top: 20px;">
+                        <p><strong>4. Quieres advertir que el suelo en una excavación NO es estable.</strong></p>
+                        <label><input type="radio" name="q4" value="wrong"> The soil not is stable.</label><br>
+                        <label><input type="radio" name="q4" value="wrong"> The soil is stable not.</label><br>
+                        <label><input type="radio" name="q4" value="correct"> The soil is not stable.</label>
+                    </div>
+
+                    <button id="check-answers-btn" class="action-btn" style="margin-top: 30px; width: 100%;">Verificar Respuestas</button>
+                    <div id="quiz-feedback" style="margin-top: 15px; font-weight: bold; font-size: 1.2rem; text-align: center;"></div>
+                </div>
+            </section>
+        </div>
+
+         <div id="clase-3" class="class-content">
+            <section class="intro-section">
+                <h2>Prueba - Clase 3</h2>
                 <p>Aún no hay evaluaciones para esta clase.</p>
             </section>
         </div>

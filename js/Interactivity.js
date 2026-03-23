@@ -122,4 +122,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     console.log("Interactivity.js cargado: Tabs y Galería Modal listos.");
+
+    /* ==================================================
+       LÓGICA DEL QUIZ (CLASE 2)
+    ================================================== */
+    const checkAnswersBtn = document.getElementById("check-answers-btn");
+    const quizFeedback = document.getElementById("quiz-feedback");
+
+    if (checkAnswersBtn) {
+        checkAnswersBtn.addEventListener("click", function() {
+            let score = 0;
+            const totalQuestions = 4;
+            
+            // Recorre cada pregunta (q1, q2, q3, q4)
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const questionContainer = document.querySelectorAll('.quiz-question')[i-1];
+                
+                // Reiniciar color de fondo
+                questionContainer.style.backgroundColor = "transparent";
+
+                if (selectedOption) {
+                    if (selectedOption.value === "correct") {
+                        score++;
+                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)"; // Verde claro
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    } else {
+                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)"; // Rojo claro
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    }
+                }
+            }
+
+            // Mostrar el resultado final
+            if (score === totalQuestions) {
+                quizFeedback.style.color = "#27ae60";
+                quizFeedback.innerHTML = `¡Excelente! ${score}/${totalQuestions}. ¡Está listo para el trabajo de campo! ⛏️ (se merece una pola)`;
+            } else {
+                quizFeedback.style.color = "#e74c3c";
+                quizFeedback.innerHTML = `Obtuviste ${score}/${totalQuestions}. Revise las preguntas en rojo e inténtelo de nuevo. Me puede escribir`;
+            }
+        });
+    }
+
 });

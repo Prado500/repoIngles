@@ -48,33 +48,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /* ==================================================
-       LÓGICA DEL MODAL DE GALERÍA (LIGHTBOX)
+       LÓGICA DEL MODAL DE GALERÍA (LIGHTBOX) v2
     ================================================== */
+
     const modal = document.getElementById("image-modal");
     const expandedImg = document.getElementById("expanded-img");
     const captionText = document.getElementById("caption");
     const closeModalBtn = document.querySelector(".close-modal");
     
-    let currentGallery = []; // Arreglo para guardar las imágenes de la clase actual
-    let currentIndex = 0;    // Índice de la imagen que se está viendo
+    let currentGallery = []; 
+    let currentIndex = 0;    
 
-    // Escuchar clics en todas las imágenes con la clase 'gallery-img'
     document.querySelectorAll('.gallery-img').forEach(img => {
         img.addEventListener('click', function () {
-            // Identificar qué clase está activa actualmente para agrupar solo sus imágenes
+            // 1. Verificar si estamos en una página con pestañas (como evaluaciones)
             const activeContent = document.querySelector('.class-content.active');
-            currentGallery = Array.from(activeContent.querySelectorAll('.gallery-img'));
             
-            // Encontrar el índice de la imagen a la que se le hizo clic
+            if (activeContent) {
+                // Si hay pestañas, agrupa solo las de la pestaña activa
+                currentGallery = Array.from(activeContent.querySelectorAll('.gallery-img'));
+            } else {
+                // Si NO hay pestañas (verbos o conjugaciones), agrupa todas las de la página
+                currentGallery = Array.from(document.querySelectorAll('.gallery-img'));
+            }
+            
+            // 2. Encontrar el índice de la imagen clickeada
             currentIndex = currentGallery.indexOf(this);
             
-            // Mostrar modal y actualizar imagen
-            modal.style.display = "block";
-            updateModalImage();
+            // 3. Mostrar modal y actualizar
+            if(modal) {
+                modal.style.display = "block";
+                updateModalImage();
+            }
         });
     });
 
-    // Función para actualizar la imagen en el modal
     function updateModalImage() {
         if(currentGallery.length > 0) {
             expandedImg.src = currentGallery[currentIndex].src;
@@ -84,14 +92,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Botón Siguiente
     document.querySelector('.next-btn')?.addEventListener('click', function() {
-        // Avanza 1, y si llega al final, vuelve a empezar (comportamiento circular)
         currentIndex = (currentIndex + 1) % currentGallery.length;
         updateModalImage();
     });
 
     // Botón Anterior
     document.querySelector('.prev-btn')?.addEventListener('click', function() {
-        // Retrocede 1, y si llega al principio, va a la última
         currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
         updateModalImage();
     });
@@ -114,14 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (event.key === "Escape") {
                 modal.style.display = "none";
             } else if (event.key === "ArrowRight") {
-                document.querySelector('.next-btn').click();
+                document.querySelector('.next-btn')?.click();
             } else if (event.key === "ArrowLeft") {
-                document.querySelector('.prev-btn').click();
+                document.querySelector('.prev-btn')?.click();
             }
         }
     });
-
-    console.log("Interactivity.js cargado: Tabs y Galería Modal listos.");
 
     /* ==================================================
        LÓGICA DEL QUIZ (CLASE 2)

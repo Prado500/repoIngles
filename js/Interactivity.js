@@ -256,3 +256,44 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+/* ==================================================
+       LÓGICA DEL QUIZ (CLASE 5)
+    ================================================== */
+    const checkAnswersBtn5 = document.getElementById("check-answers-btn-5");
+    const quizFeedback5 = document.getElementById("quiz-feedback-5");
+
+    if (checkAnswersBtn5) {
+        checkAnswersBtn5.addEventListener("click", function() {
+            let score = 0;
+            const totalQuestions = 5;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="c5q${i}"]:checked`);
+                const questionContainer = document.querySelectorAll('.quiz-question-5')[i-1];
+                
+                questionContainer.style.backgroundColor = "transparent";
+
+                if (selectedOption) {
+                    if (selectedOption.value === "correct") {
+                        score++;
+                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    } else {
+                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    }
+                }
+            }
+
+            if (score === totalQuestions) {
+                quizFeedback5.style.color = "#27ae60";
+                quizFeedback5.innerHTML = `¡Perfecto! ${score}/${totalQuestions}. Dominas la regla de la S y el orden del tiempo. ⏳`;
+            } else {
+                quizFeedback5.style.color = "#e74c3c";
+                quizFeedback5.innerHTML = `Obtuviste ${score}/${totalQuestions}. Revisa el orden de los adverbios en las diapositivas.`;
+            }
+        });
+    }

@@ -171,4 +171,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+    /* ==================================================
+       LÓGICA DEL QUIZ (CLASE 3)
+    ================================================== */
+    const checkAnswersBtn3 = document.getElementById("check-answers-btn-3");
+    const quizFeedback3 = document.getElementById("quiz-feedback-3");
+
+    if (checkAnswersBtn3) {
+        checkAnswersBtn3.addEventListener("click", function() {
+            let score = 0;
+            const totalQuestions = 4;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="c3q${i}"]:checked`);
+                const questionContainer = document.querySelectorAll('.quiz-question-3')[i-1];
+                
+                questionContainer.style.backgroundColor = "transparent";
+
+                if (selectedOption) {
+                    if (selectedOption.value === "correct") {
+                        score++;
+                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    } else {
+                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    }
+                }
+            }
+
+            if (score === totalQuestions) {
+                quizFeedback3.style.color = "#27ae60";
+                quizFeedback3.innerHTML = `¡Excelente! ${score}/${totalQuestions}. ¡Entendiste perfecto el pasado y los auxiliares! ⛏️`;
+            } else {
+                quizFeedback3.style.color = "#e74c3c";
+                quizFeedback3.innerHTML = `Obtuviste ${score}/${totalQuestions}. Revisa los errores en rojo. ¡Ánimo!`;
+            }
+        });
+    }
+
+
 });

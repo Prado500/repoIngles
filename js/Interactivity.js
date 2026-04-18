@@ -215,3 +215,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+/* ==================================================
+       LÓGICA DEL QUIZ (CLASE 4)
+    ================================================== */
+    const checkAnswersBtn4 = document.getElementById("check-answers-btn-4");
+    const quizFeedback4 = document.getElementById("quiz-feedback-4");
+
+    if (checkAnswersBtn4) {
+        checkAnswersBtn4.addEventListener("click", function() {
+            let score = 0;
+            const totalQuestions = 4;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="c4q${i}"]:checked`);
+                const questionContainer = document.querySelectorAll('.quiz-question-4')[i-1];
+                
+                questionContainer.style.backgroundColor = "transparent";
+
+                if (selectedOption) {
+                    if (selectedOption.value === "correct") {
+                        score++;
+                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    } else {
+                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    }
+                }
+            }
+
+            if (score === totalQuestions) {
+                quizFeedback4.style.color = "#27ae60";
+                quizFeedback4.innerHTML = `¡Impecable! ${score}/${totalQuestions}. ¡Ya sabes romper palabras como rocas sedimentarias! 🪨`;
+            } else {
+                quizFeedback4.style.color = "#e74c3c";
+                quizFeedback4.innerHTML = `Obtuviste ${score}/${totalQuestions}. Repasa los prefijos y sufijos en las diapositivas.`;
+            }
+        });
+    }

@@ -216,8 +216,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
 /* ==================================================
-       LÓGICA DEL QUIZ (CLASE 4)
+       LÓGICA DEL QUIZ (CLASE 4 - ENGLISH LOG)
     ================================================== */
     const checkAnswersBtn4 = document.getElementById("check-answers-btn-4");
     const quizFeedback4 = document.getElementById("quiz-feedback-4");
@@ -225,34 +226,36 @@ document.addEventListener("DOMContentLoaded", function () {
     if (checkAnswersBtn4) {
         checkAnswersBtn4.addEventListener("click", function() {
             let score = 0;
-            const totalQuestions = 4;
+            const totalQuestions = 4; // Son 4 preguntas en el quiz del English Log
             
             for (let i = 1; i <= totalQuestions; i++) {
                 const selectedOption = document.querySelector(`input[name="c4q${i}"]:checked`);
                 const questionContainer = document.querySelectorAll('.quiz-question-4')[i-1];
                 
+                // Reiniciar el fondo por si el usuario corrige su respuesta
                 questionContainer.style.backgroundColor = "transparent";
 
                 if (selectedOption) {
                     if (selectedOption.value === "correct") {
                         score++;
-                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)"; // Verde éxito
                         questionContainer.style.borderRadius = "8px";
                         questionContainer.style.padding = "10px";
                     } else {
-                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)";
+                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)"; // Rojo error
                         questionContainer.style.borderRadius = "8px";
                         questionContainer.style.padding = "10px";
                     }
                 }
             }
 
+            // Mensaje de retroalimentación final
             if (score === totalQuestions) {
                 quizFeedback4.style.color = "#27ae60";
-                quizFeedback4.innerHTML = `¡Impecable! ${score}/${totalQuestions}. ¡Ya sabes romper palabras como rocas sedimentarias! 🪨`;
+                quizFeedback4.innerHTML = `¡Excelente! ${score}/${totalQuestions}. ¡Sabes usar el English Log a la perfección en el campo! 🧭`;
             } else {
                 quizFeedback4.style.color = "#e74c3c";
-                quizFeedback4.innerHTML = `Obtuviste ${score}/${totalQuestions}. Repasa los prefijos y sufijos en las diapositivas.`;
+                quizFeedback4.innerHTML = `Obtuviste ${score}/${totalQuestions}. Repasa las diferencias entre Chunks y Collocations en las pizarras.`;
             }
         });
     }
@@ -266,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (checkAnswersBtn5) {
         checkAnswersBtn5.addEventListener("click", function() {
             let score = 0;
-            const totalQuestions = 5;
+            const totalQuestions = 4;
             
             for (let i = 1; i <= totalQuestions; i++) {
                 const selectedOption = document.querySelector(`input[name="c5q${i}"]:checked`);
@@ -290,10 +293,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (score === totalQuestions) {
                 quizFeedback5.style.color = "#27ae60";
-                quizFeedback5.innerHTML = `¡Perfecto! ${score}/${totalQuestions}. Dominas la regla de la S y el orden del tiempo. ⏳`;
+                quizFeedback5.innerHTML = `¡Impecable! ${score}/${totalQuestions}. ¡Ya sabes romper palabras como rocas sedimentarias! 🪨`;
             } else {
                 quizFeedback5.style.color = "#e74c3c";
-                quizFeedback5.innerHTML = `Obtuviste ${score}/${totalQuestions}. Revisa el orden de los adverbios en las diapositivas.`;
+                quizFeedback5.innerHTML = `Obtuviste ${score}/${totalQuestions}. Repasa los prefijos y sufijos en las diapositivas.`;
+            }
+        });
+    }
+
+/* ==================================================
+       LÓGICA DEL QUIZ (CLASE 6)
+    ================================================== */
+    const checkAnswersBtn6 = document.getElementById("check-answers-btn-6");
+    const quizFeedback6 = document.getElementById("quiz-feedback-6");
+
+    if (checkAnswersBtn6) {
+        checkAnswersBtn6.addEventListener("click", function() {
+            let score = 0;
+            const totalQuestions = 5;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="c6q${i}"]:checked`);
+                const questionContainer = document.querySelectorAll('.quiz-question-6')[i-1];
+                
+                questionContainer.style.backgroundColor = "transparent";
+
+                if (selectedOption) {
+                    if (selectedOption.value === "correct") {
+                        score++;
+                        questionContainer.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    } else {
+                        questionContainer.style.backgroundColor = "rgba(231, 76, 60, 0.2)";
+                        questionContainer.style.borderRadius = "8px";
+                        questionContainer.style.padding = "10px";
+                    }
+                }
+            }
+
+            if (score === totalQuestions) {
+                quizFeedback6.style.color = "#27ae60";
+                quizFeedback6.innerHTML = `¡Perfecto! ${score}/${totalQuestions}. Dominas la regla de la S y el orden del tiempo. ⏳`;
+            } else {
+                quizFeedback6.style.color = "#e74c3c";
+                quizFeedback6.innerHTML = `Obtuviste ${score}/${totalQuestions}. Revisa el orden de los adverbios en las diapositivas.`;
             }
         });
     }
